@@ -1,0 +1,46 @@
+`timescale 1ns / 1ps
+
+module four_bit_input_sim;
+
+    // Testbench signals
+    logic [3:0] in;
+    logic [3:0] out;
+
+    // Instantiate the module under test (MUT)
+    four_bit_input uut (
+        .in(in),
+        .out(out)
+    );
+
+    // Test sequence
+    initial begin
+        // Apply test vectors
+        $display("Starting Testbench");
+        
+        in = 4'b0000; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        in = 4'b0001; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        in = 4'b0010; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        in = 4'b0011; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        in = 4'b0100; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        in = 4'b0111; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        in = 4'b1111; #10;
+        $display("Input: %b, Output: %b", in, out);
+
+        // End of test
+        $display("Testbench Completed");
+        $finish;
+    end
+
+endmodule
